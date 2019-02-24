@@ -28,7 +28,7 @@ public class ForkJoinUppercaseAction extends RecursiveAction{
         this.threshold = threshold;
     }
  
-    @Override
+    @Override 
     protected void compute() {
         if (workload.length() > threshold) {
             ForkJoinTask.invokeAll(createSubtasks());
