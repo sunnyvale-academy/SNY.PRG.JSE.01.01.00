@@ -56,7 +56,7 @@ public class ForkJoinUppercaseTask extends RecursiveTask<String> {
 
     private String processing(String work) {
         String result = work.toUpperCase();
-        //logger.info("This result - (" + result + ") - was processed by "+ Thread.currentThread().getName());
+        logger.info("This result - (" + result + ") - was processed by "+ Thread.currentThread().getName());
         return result;
     }
 
