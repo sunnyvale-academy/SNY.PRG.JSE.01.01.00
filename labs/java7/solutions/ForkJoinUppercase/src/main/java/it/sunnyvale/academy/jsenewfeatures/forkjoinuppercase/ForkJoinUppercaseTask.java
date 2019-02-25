@@ -19,23 +19,20 @@ public class ForkJoinUppercaseTask extends RecursiveTask<String> {
 
     private String workload;
     private int threshold;
-    private int start;
-    private int end;
+    
 
     private static Logger logger
             = Logger.getAnonymousLogger();
 
-    public ForkJoinUppercaseTask(String workload, int start, int end, int threshold) {
+    public ForkJoinUppercaseTask(String workload, int threshold) {
         this.workload = workload;
         this.threshold = threshold;
-        this.start = start;
-        this.end = end;
     }
 
     @Override
     protected String compute() {
 
-        if (end - start < threshold) {
+        if (workload.length() < threshold) {
 
             return processing(workload);
 
@@ -44,10 +41,10 @@ public class ForkJoinUppercaseTask extends RecursiveTask<String> {
             String partOne = workload.substring(0, workload.length() / 2);
             String partTwo = workload.substring(workload.length() / 2, workload.length());
 
-            ForkJoinUppercaseTask t1 = new ForkJoinUppercaseTask(partOne, 0, partOne.length() - 1, threshold);
+            ForkJoinUppercaseTask t1 = new ForkJoinUppercaseTask(partOne,  threshold);
             t1.fork();
 
-            ForkJoinUppercaseTask t2 = new ForkJoinUppercaseTask(partTwo, 0, partTwo.length() - 1, threshold);
+            ForkJoinUppercaseTask t2 = new ForkJoinUppercaseTask(partTwo,  threshold);
 
             return t2.compute() + t1.join();
 

@@ -9,7 +9,7 @@ import it.sunnyvale.academy.jsenewfeatures.forkjoinuppercase.ForkJoinUppercaseAc
 import it.sunnyvale.academy.jsenewfeatures.forkjoinuppercase.ForkJoinUppercaseTask;
 import java.util.Arrays;
 import java.util.Random;
-import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
@@ -52,7 +52,7 @@ public class ForkJoinUppercaseTest {
 
         String workload = new String(charArray);
 
-        ForkJoinUppercaseTask forkJoinUppercase = new ForkJoinUppercaseTask(workload, 0, workload.length() - 1, THRESHOLD);
+        ForkJoinUppercaseTask forkJoinUppercase = new ForkJoinUppercaseTask(workload, THRESHOLD);
         String result = forkJoinUppercase.invoke();
 
         System.out.println(sort(workload));
@@ -60,7 +60,7 @@ public class ForkJoinUppercaseTest {
 
 
         assertTrue(workload.length() == result.length());
-        Assert.assertEquals("",sort(workload),sort(result));
+        assertEquals("",sort(workload),sort(result));
     }
     
     
