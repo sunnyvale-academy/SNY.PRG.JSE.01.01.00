@@ -15,6 +15,28 @@ public static List<Path>[] compareDirectories(Path oldDir, Path newDir) throws I
 ## ForkJoin framework
 ### String case conversion using ForkJoin framework (RecursiveAction)
 
+In this exercise you will create a tool which, given a String of lowercase charachters, will recursively process every characther transforming it to uppercase.
+
+
+Create a class named **ForkJoinUppercaseAction** that extends RecursiveAction, this class have to work in the following way:
+
+```
+char[] charArray = new char[4096];
+charArray = fillArray(charArray);
+String workload = new String(charArray);
+ForkJoinUppercaseAction forkJoinUppercase = new ForkJoinUppercaseAction(workload, 100);
+forkJoinUppercase.invoke();
+```
 
 
 ### String case conversion using ForkJoin framework (RecursiveTask)
+
+Create a class named **ForkJoinUppercaseTask** that extends RecursiveTask, this class have to work in the following way:
+
+```
+char[] charArray = new char[4096];
+charArray = fillArray(charArray);
+String workload = new String(charArray);
+ForkJoinUppercaseTask forkJoinUppercase = new ForkJoinUppercaseTask(workload, 100);
+String result = forkJoinUppercase.invoke();
+```
