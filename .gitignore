@@ -5,3 +5,7 @@ nb*
 .classpath
 .project
 .settings
+**/*.log
+**/*.out
+**/*.err
+**/*.jfr

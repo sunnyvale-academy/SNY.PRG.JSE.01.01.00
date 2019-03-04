@@ -37,8 +37,27 @@
                 <configuration>
                     <executable>java</executable>
                     <arguments>
+                        <!-- GC -->
+                        <argument>-verbose:gc</argument>
+                        <argument>-Xloggc:gc.log</argument>
+                        <argument>-XX:+PrintGCTimeStamps</argument>
+                        <argument>-XX:+PrintGCDateStamps</argument>
+                        <argument>-XX:+PrintGCDetails</argument>
+                        <argument>-XX:+PrintGCApplicationStoppedTime</argument>
+                        <argument>-XX:+PrintGCApplicationConcurrentTime</argument>
+                        <!-- G1 -->
+                        <argument>-XX:+UseG1GC</argument>
+                        <argument>-XX:MaxGCPauseMillis=200</argument>
+                        <argument>-XX:InitiatingHeapOccupancyPercent=45</argument>
+                        <argument>-XX:G1ReservePercent=10</argument>
+                        <argument>-XX:ConcGCThreads=2</argument>
+                        <!-- Flight Recorder -->
+                        <argument>-XX:+UnlockCommercialFeatures</argument>
+                        <argument>-XX:+FlightRecorder</argument>
+                        <!-- Classpath -->
                         <argument>-classpath</argument>
                         <classpath/>
+                        <!-- Main class -->
                         <argument>java2d.Java2Demo</argument>
                     </arguments>
                 </configuration>
