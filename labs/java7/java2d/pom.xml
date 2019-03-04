@@ -54,6 +54,7 @@
                         <!-- Flight Recorder -->
                         <argument>-XX:+UnlockCommercialFeatures</argument>
                         <argument>-XX:+FlightRecorder</argument>
+                        <!--<argument>-XX:FlightRecorderOptions=defaultrecording=true,settings=super_verbose_jfr_template.jfc</argument>-->
                         <!-- Classpath -->
                         <argument>-classpath</argument>
                         <classpath/>
