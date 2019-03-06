@@ -23,3 +23,18 @@ mvn exec:exec
 ```
 vi pom.xml
 ```
+Change/comment/uncomment the following
+```
+<!-- GC -->
+<argument>-verbose:gc</argument>
+<argument>-Xloggc:gc.log</argument>
+<argument>-XX:+PrintGCTimeStamps</argument>
+<argument>-XX:+PrintGCDateStamps</argument>
+<argument>-XX:+PrintGCDetails</argument>
+<argument>-XX:+PrintGCApplicationStoppedTime</argument>
+<argument>-XX:+PrintGCApplicationConcurrentTime</argument>
+<argument>-XX:+UseGCLogFileRotation</argument>
+<argument>-XX:NumberOfGCLogFiles=5</argument>
+<argument>-XX:GCLogFileSize=2M</argument>
+<argument>-XX:+PrintFlagsFinal</argument>
+```
