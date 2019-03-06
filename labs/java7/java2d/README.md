@@ -52,3 +52,15 @@ Change/comment/uncomment the following
 <argument>-XX:G1ReservePercent=10</argument>
 <argument>-XX:ConcGCThreads=2</argument>
 ```
+
+## To enable/disable Java Flight Recorder 
+```
+vi pom.xml
+```
+Change/comment/uncomment the following
+```
+<!-- Flight Recorder -->
+<argument>-XX:+UnlockCommercialFeatures</argument>
+<argument>-XX:+FlightRecorder</argument>
+<!--<argument>-XX:FlightRecorderOptions=defaultrecording=true,settings=super_verbose_jfr_template.jfc</argument>-->
+```
