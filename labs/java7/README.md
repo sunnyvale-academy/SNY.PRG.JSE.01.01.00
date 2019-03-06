@@ -40,6 +40,9 @@ String workload = new String(charArray);
 ForkJoinUppercaseTask forkJoinUppercase = new ForkJoinUppercaseTask(workload, 100);
 String result = forkJoinUppercase.invoke();
 ```
+
+## G1 Garbage Collector
+
 ### Apply GC monitoring techniques with java2d demo application
 Please refer to [java2d](java2d/README.md)
 
