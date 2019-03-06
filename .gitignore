@@ -10,3 +10,4 @@ nb*
 **/*.err
 **/*.jfr
 **/*.current
+bin/
