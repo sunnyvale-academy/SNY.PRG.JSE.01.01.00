@@ -1,6 +1,8 @@
 # Java2 Demo
 ## Mandatory prerequisite steps
 ```
+sudo yum update && sudo yum install maven # (RedHat like Linux)
+sudo apt-get update && sudo apt-get install maven # (Ubuntu like Linux)
 export JAVA_HOME=/path/to/jdk7
 export PATH=JAVA_HOME/bin:$PATH
 ````
