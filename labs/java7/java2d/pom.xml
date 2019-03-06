@@ -45,6 +45,10 @@
                         <argument>-XX:+PrintGCDetails</argument>
                         <argument>-XX:+PrintGCApplicationStoppedTime</argument>
                         <argument>-XX:+PrintGCApplicationConcurrentTime</argument>
+                        <argument>-XX:+UseGCLogFileRotation</argument>
+                        <argument>-XX:NumberOfGCLogFiles=5</argument>
+                        <argument>-XX:GCLogFileSize=2M</argument>
+                        <argument>-XX:+PrintFlagsFinal</argument>
                         <!-- G1 -->
                         <argument>-XX:+UseG1GC</argument>
                         <argument>-XX:MaxGCPauseMillis=200</argument>

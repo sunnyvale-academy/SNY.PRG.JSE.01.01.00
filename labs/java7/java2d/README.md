@@ -16,3 +16,8 @@ mvn build
 cd <JAVA2DEMO_HOME>
 mvn exec:exec
 ```
+
+## To modify java flags
+```
+vi pom.xml
+```
