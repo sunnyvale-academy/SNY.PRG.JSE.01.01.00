@@ -48,3 +48,7 @@ Please refer to [java2d](java2d/README.md)
 
 ### Use G1 GC algorithm with java2d demo application
 Please refer to [java2d](java2d/README.md)
+
+## Mission Control and Flight Recorder
+### Profile java2d demo app using Mission Control and Flight Recorder
+Please refer to [java2d](java2d/README.md)
