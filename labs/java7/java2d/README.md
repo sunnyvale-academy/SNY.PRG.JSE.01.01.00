@@ -19,7 +19,7 @@ cd <JAVA2DEMO_HOME>
 mvn exec:exec
 ```
 
-## To modify java flags
+## To modify Java GC flags
 ```
 vi pom.xml
 ```
@@ -37,4 +37,18 @@ Change/comment/uncomment the following
 <argument>-XX:NumberOfGCLogFiles=5</argument>
 <argument>-XX:GCLogFileSize=2M</argument>
 <argument>-XX:+PrintFlagsFinal</argument>
+```
+
+## To modify Java G1 GC flags
+```
+vi pom.xml
+```
+Change/comment/uncomment the following
+```
+<!-- G1 -->
+<argument>-XX:+UseG1GC</argument>
+<argument>-XX:MaxGCPauseMillis=200</argument>
+<argument>-XX:InitiatingHeapOccupancyPercent=45</argument>
+<argument>-XX:G1ReservePercent=10</argument>
+<argument>-XX:ConcGCThreads=2</argument>
 ```
