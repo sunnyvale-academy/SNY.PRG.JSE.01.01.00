@@ -64,3 +64,14 @@ Change/comment/uncomment the following
 <argument>-XX:+FlightRecorder</argument>
 <!--<argument>-XX:FlightRecorderOptions=defaultrecording=true,settings=super_verbose_jfr_template.jfc</argument>-->
 ```
+
+## To analyse the data using gceasy.io (browser based)
+Upload gc.log file to http://gceasy.io
+
+## To analyse the data using gceasy.io (REST API based)
+Obtain an API KEY by registering [here](https://gceasy.io/gc-registration.jsp)
+
+Upload gc.log file using the following command
+```
+curl -X POST --data-binary @./gc.log https://api.gceasy.io/analyzeGC?apiKey={API_KEY_SENT_IN_EMAIL} --header "Content-Type:text"
+```
