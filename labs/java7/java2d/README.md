@@ -65,6 +65,13 @@ Change/comment/uncomment the following
 <!--<argument>-XX:FlightRecorderOptions=defaultrecording=true,settings=super_verbose_jfr_template.jfc</argument>-->
 ```
 
+## To analyse the data manually
+
+Inspect gc.log
+```
+vi gc.log
+```
+
 ## To analyse the data using gceasy.io (browser based)
 Upload gc.log file to http://gceasy.io
 
