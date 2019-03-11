@@ -1,6 +1,9 @@
 package it.sunnyvale.academy.jsenewfeatures.lambdaexpression;
 
-
+/**
+ *
+ * @author denismaggiorotto
+ */
 public class AnonymousInnerClassExample {
 
     public static void main(String[] args) {
