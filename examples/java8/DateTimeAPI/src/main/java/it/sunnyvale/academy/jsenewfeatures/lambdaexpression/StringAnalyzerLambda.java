@@ -9,6 +9,7 @@ public class StringAnalyzerLambda {
 
     public static void main(String[] args) {
 
+        // Must be treated as "Effectively Final"
         int counter = 0;
 
         // Compact Lambda Expression
@@ -17,7 +18,7 @@ public class StringAnalyzerLambda {
         // Lambda Expression with parameter type declaration
         System.out.println(StringAnalyzerLambda.analyze(args[0], args[1], (String target, String searchString)->target.contains(searchString)));
 
-        // Multi line Lambda Expression
+        // Multi line Lambda Expression (statements have to end with ";", return statement is mandatory)
         System.out.println(StringAnalyzerLambda.analyze(args[0], args[1], (String target, String searchString)-> {
             System.out.println("Don't do this!");
             return target.contains(searchString);
