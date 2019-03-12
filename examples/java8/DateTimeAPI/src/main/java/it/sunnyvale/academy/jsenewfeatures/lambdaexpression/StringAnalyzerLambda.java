@@ -10,7 +10,7 @@ public class StringAnalyzerLambda {
     public static void main(String[] args) {
 
         // Must be treated as "Effectively Final"
-        // It wont compile with JDK 7, append final modifier to it
+        // It wont compile with JDK 7, add final modifier to it
         int counter = 0;
 
         // Compact Lambda Expression
