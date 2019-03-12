@@ -4,10 +4,10 @@ package it.sunnyvale.academy.jsenewfeatures.lambdaexpression;
  *
  * @author denismaggiorotto
  */
-public class StringAnalyzerAnonymousInnerClassExample {
+public class StringAnalyzerAnonymousInnerClass {
 
     public static void main(String[] args) {
-        System.out.println(StringAnalyzerAnonymousInnerClassExample.analyze(args[0], args[1], new StringAnalyzer() {
+        System.out.println(StringAnalyzerAnonymousInnerClass.analyze(args[0], args[1], new StringAnalyzer() {
         
             @Override
             public boolean analyze(String target, String searchStr) {
