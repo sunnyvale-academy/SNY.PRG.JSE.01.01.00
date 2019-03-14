@@ -7,7 +7,13 @@ Write a Java program to get the name of the first and last day of a month.
 Create a class named **FirstLastDayOfMonth** with the following method:
 
 ```
-public static String[] format(YearMonth yearMonth);
+public static String[] firstLastDayOfMonth(YearMonth yearMonth);
+```
+where
+
+```
+String firstDaOfMonth = arr[0];
+String lastDaOfMonth = arr[1];
 ```
 
 
