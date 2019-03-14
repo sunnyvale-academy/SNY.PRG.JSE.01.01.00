@@ -74,6 +74,8 @@ public void testFormatZonedDateTime() {
 ```
 
 ## Lambda Expression
+
+### Lambda Array Processor
 Suppose that a function interface ArrayProcessor is defined as
 ```
 public interface ArrayProcessor {
