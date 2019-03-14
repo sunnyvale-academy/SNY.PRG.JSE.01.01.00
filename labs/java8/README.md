@@ -72,3 +72,42 @@ public void testFormatZonedDateTime() {
     assertTrue(formattedString.matches("23::Apr::1981 20::00::00 CEST"));
 }
 ```
+
+## Lambda Expression
+Suppose that a function interface ArrayProcessor is defined as
+```
+public interface ArrayProcessor {
+    double apply( double[] array );
+}
+```
+Write a class named **ArrayProcessor** with two static methods that return different implementations ArrayProcessor (written as Lambda Expressions), so as to  process an array in the following ways: find the maximum value in the array, find the minimum value in an array.
+
+Methods will have the following signatures:
+
+```
+public static ArrayProcessor getMaxer()
+public static ArrayProcessor getMiner)
+
+```
+
+Class will be tested with
+
+```
+private double[] array = { 17.0, 3.14, 17.0, -3.4, 17.0, 42.0, 29.2, 3.14 };
+
+@Test
+public void testLambdaArrayProcessorMax() {
+    ArrayProcessor maxer = LambdaArrayProcessor.getMaxter();
+    double max = maxer.apply(array);
+    assertTrue(42.0 == max);
+    
+}
+
+@Test
+public void testLambdaArrayProcessorMin() {
+    ArrayProcessor miner = LambdaArrayProcessor.getMiner();
+    double min = miner.apply(array);
+    assertTrue(-3.4 == min);
+}
+```
+
