@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * SalesTxn
  */
-public class SalesTxn {
+public class SalesTxn implements Comparable{
 
     public static class Builder {
 
@@ -51,15 +51,27 @@ public class SalesTxn {
         txn1.setState("IT");
         txn1.setBuyerName("Mario Rossi");
         txn1.setTxnId(1);
-        txn1.setTransactionTotal(100.1);
+        txn1.setTransactionTotal(150000);
         SalesTxn txn2 = new SalesTxn();
         txn2.setState("FR");
         txn2.setBuyerName("Mario Bianchi");
         txn2.setTxnId(2);
         txn2.setTransactionTotal(99.100);
+        SalesTxn txn3 = new SalesTxn();
+        txn3.setState("CA");
+        txn3.setBuyerName("Elon Musk");
+        txn3.setTxnId(3);
+        txn3.setTransactionTotal(100000);
+        SalesTxn txn4 = new SalesTxn();
+        txn4.setState("CA");
+        txn4.setBuyerName("Larry Ellison");
+        txn4.setTxnId(4);
+        txn4.setTransactionTotal(150000);
         List<SalesTxn> list = new ArrayList<>();
         list.add(txn1);
         list.add(txn2);
+        list.add(txn3);
+        list.add(txn4);
         return list;
     }
 
@@ -137,6 +149,11 @@ public class SalesTxn {
      */
     public void setTransactionTotal(double transactionTotal) {
         this.transactionTotal = transactionTotal;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return this.getBuyerName().compareTo(((SalesTxn)o).getBuyerName());
     }
 
 }
