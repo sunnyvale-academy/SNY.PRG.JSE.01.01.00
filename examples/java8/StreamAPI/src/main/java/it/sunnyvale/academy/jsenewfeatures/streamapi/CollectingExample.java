@@ -6,6 +6,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.ToDoubleFunction;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * FilterExample
@@ -57,6 +58,7 @@ public class CollectingExample {
         Map partitioningByTransactionTotalMap = txnList.stream()
         .collect(Collectors.partitioningBy(partitioningPredicate));
         System.out.println(String.format("Partitioning by Transaction Total +/- 100: %s",partitioningByTransactionTotalMap));
+
         
     }
 }
