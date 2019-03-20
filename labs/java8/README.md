@@ -113,3 +113,11 @@ public void testLambdaArrayProcessorMin() {
 }
 ```
 
+## Stream API
+
+### Library Calculations
+
+Get the unique surnames in uppercase of the book
+authors that are 50 years old or over (using StreamAPI).
+
+Get the sum of ages of all female authors younger than 40 (using StreamAPI).
