@@ -134,7 +134,7 @@ public static List<String> getUniqueSurnamesUppercase(List<Book> library)
 Then, in the same class, write a method that returns the sum of ages of all female authors younger than 40, as showed here after:
 
 ```
-public static Integer getSumAgesAllFemalesAuthorsYoungerThan25(List<Book> library) 
+public static Integer getSumAgesAllFemalesAuthorsYoungerThan40(List<Book> library) 
 ```
 
 Both methods have to contain the internal business logic implemented using Java 8 Stream API
@@ -218,8 +218,8 @@ public static void setup(){
 
 
 @Test
-public void testSumAgesAllFemalesAuthorsYoungerThan25(){
-    int sum = LibraryCalculations.getSumAgesAllFemalesAuthorsYoungerThan25(LibraryCalculationsTest.library);
+public void testSumAgesAllFemalesAuthorsYoungerThan40(){
+    int sum = LibraryCalculations.getSumAgesAllFemalesAuthorsYoungerThan40(LibraryCalculationsTest.library);
         assertTrue(sum == 30);
 }   
 
