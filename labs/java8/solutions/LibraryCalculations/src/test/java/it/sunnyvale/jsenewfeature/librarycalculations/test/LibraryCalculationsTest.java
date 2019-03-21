@@ -95,8 +95,8 @@ public class LibraryCalculationsTest {
     }
 
     @Test
-    public void testSumAgesAllFemalesAuthorsYoungerThan25(){
-        int sum = LibraryCalculations.getSumAgesAllFemalesAuthorsYoungerThan25(LibraryCalculationsTest.library);
+    public void testSumAgesAllFemalesAuthorsYoungerThan40(){
+        int sum = LibraryCalculations.getSumAgesAllFemalesAuthorsYoungerThan40(LibraryCalculationsTest.library);
         assertTrue(sum == 30);
     }
 

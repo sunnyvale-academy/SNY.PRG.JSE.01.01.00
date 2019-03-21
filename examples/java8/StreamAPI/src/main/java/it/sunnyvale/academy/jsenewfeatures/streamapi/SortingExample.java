@@ -38,12 +38,12 @@ public class SortingExample {
         // sorting
         System.out.println("#### SalesTxn ordering by tnx ID (Comparator.comparing) ####");
         Function<SalesTxn, Integer> comparingFunction1 = t -> new Integer(t.getTxnId());
-        Function<SalesTxn, Double> comparingFunction2 = t -> new Double(t.getTransactionTotal());
         txnList.stream()
                 .sorted(Comparator.comparing(comparingFunction1))
                 .forEach(SalesTxn::printSummary);
 
         System.out.println("#### SalesTxn ordering by tnx ID (Comparator.comparing, thenComparing) ####");
+        Function<SalesTxn, Double> comparingFunction2 = t -> new Double(t.getTransactionTotal());
         Function<SalesTxn, String> comparingFunction3 = t -> t.getBuyerName();
         txnList.stream()
                 .sorted(Comparator.comparing(comparingFunction2)

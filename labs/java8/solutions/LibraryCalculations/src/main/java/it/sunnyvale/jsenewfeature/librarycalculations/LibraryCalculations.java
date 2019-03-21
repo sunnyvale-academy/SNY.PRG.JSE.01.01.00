@@ -23,7 +23,7 @@ public class LibraryCalculations {
     }
 
     // Returns the sum of ages of all female authors younger than 40
-    public static Integer getSumAgesAllFemalesAuthorsYoungerThan25(List<Book> library) {
+    public static Integer getSumAgesAllFemalesAuthorsYoungerThan40(List<Book> library) {
         return library.stream()
             .map(Book::getAuthor)
             .filter(a -> a.getGender() == Gender.FEMALE)
