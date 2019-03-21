@@ -131,7 +131,7 @@ authors that are 50 years old or over, as showed here after:
 public static List<String> getUniqueSurnamesUppercase(List<Book> library)
 ```
 
-Then. in the same class, write a method that returns the sum of ages of all female authors younger than 40, as showed here after:
+Then, in the same class, write a method that returns the sum of ages of all female authors younger than 40, as showed here after:
 
 ```
 public static Integer getSumAgesAllFemalesAuthorsYoungerThan25(List<Book> library) 
