@@ -117,7 +117,43 @@ public void testLambdaArrayProcessorMin() {
 
 ### Library Calculations
 
-Get the unique surnames in uppercase of the book
-authors that are 50 years old or over (using StreamAPI).
+Given this list of books/authors
 
-Get the sum of ages of all female authors younger than 40 (using StreamAPI).
+```
+[Book{title=null, author=Author{gender=MALE, name=Andrea, surname=Camilleri, age=75}}, Book{title=null, author=Author{gender=MALE, name=Roberto, surname=Saviano, age=35}}, Book{title=null, author=Author{gender=FEMALE, name=Loredana, surname=Faletti, age=58}}, Book{title=null, author=Author{gender=MALE, name=Giorgio, surname=Faletti, age=60}}, Book{title=null, author=Author{gender=MALE, name=Gabriele, surname=Del Grande, age=24}}, Book{title=null, author=Author{gender=FEMALE, name=Emanuela, surname=Canepa, age=30}}, Book{title=null, author=Author{gender=MALE, name=Federico, surname=Moccia, age=60}}]
+```
+
+
+Write a class named **LibraryCalculations** with a method that returns unique surnames in uppercase of the book
+authors that are 50 years old or over, as showed here after:
+
+```
+public static List<String> getUniqueSurnamesUppercase(List<Book> library)
+```
+
+Then. in the same class, write a method that returns the sum of ages of all female authors younger than 40, as showed here after:
+
+```
+public static Integer getSumAgesAllFemalesAuthorsYoungerThan25(List<Book> library) 
+```
+
+Both methods have to contain the internal business logic implemented using Java 8 Stream API
+
+Methods will be tested with
+
+
+```
+@Test
+public void testSumAgesAllFemalesAuthorsYoungerThan25(){
+    int sum = LibraryCalculations.getSumAgesAllFemalesAuthorsYoungerThan25(LibraryCalculationsTest.library);
+        assertTrue(sum == 30);
+}   
+```
+
+```
+@Test
+public void testUniqueSurnamesUppercase(){
+    List<String> list = LibraryCalculations.getUniqueSurnamesUppercase(LibraryCalculationsTest.library);
+    assertThat(list, IsIterableContainingInOrder.<String>contains("CAMILLERI", "FALETTI", "MOCCIA"));
+}
+```

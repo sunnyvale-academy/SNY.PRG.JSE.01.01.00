@@ -66,5 +66,12 @@ public class Author {
         this.age = age;
     }
 
+    @Override
+    public String toString() {
+        return "Author{" + "gender=" + gender + ", name=" + name + ", surname=" + surname + ", age=" + age + '}';
+    }
+    
+    
+
     
 }

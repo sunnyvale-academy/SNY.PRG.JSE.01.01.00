@@ -83,6 +83,8 @@ public class LibraryCalculationsTest {
         library.add(book5);
         library.add(book6);
         library.add(book7);
+        
+        System.out.println(library);
 
     }
 
