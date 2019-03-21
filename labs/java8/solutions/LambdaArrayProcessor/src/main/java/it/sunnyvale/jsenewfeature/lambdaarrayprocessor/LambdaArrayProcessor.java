@@ -4,7 +4,7 @@ import java.time.*;
 import java.time.format.*;
 
 /**
- * FirstLastDayOfMonth
+ * LambdaArrayProcessor
  */
 public class LambdaArrayProcessor {
 
