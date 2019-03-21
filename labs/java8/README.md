@@ -82,7 +82,7 @@ public interface ArrayProcessor {
     double apply( double[] array );
 }
 ```
-Write a class named **ArrayProcessor** with two static methods that return different implementations of ArrayProcessor (written as Lambda Expressions), so as to  process an array in the following ways: find the maximum value in the array, find the minimum value in an array.
+Write a class named **LambdaArrayProcessor** with two static methods that return different implementations of ArrayProcessor (written as Lambda Expressions), so as to  process an array in the following ways: find the maximum value in the array, find the minimum value in an array.
 
 Methods will have the following signatures:
 
