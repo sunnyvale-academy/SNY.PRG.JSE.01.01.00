@@ -1,6 +1,8 @@
 
 # HelloModularWorld application
 
+Every path is relative from here (where this README.md is located)
+
 To build the modules using javac executable 
 
 ```
