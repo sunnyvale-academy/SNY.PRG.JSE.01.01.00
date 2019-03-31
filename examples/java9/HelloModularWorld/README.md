@@ -62,10 +62,10 @@ $ myimage/bin/Hello
 ```
 To generate a Docker image containing the previously build Java Custom Runtime Image (ref. Dockerfile)
 ```
- docker build -t hello-modular-world:1.0 .
+$ docker build -t hello-modular-world:1.0 .
 ```
 
  To run the hello-modular-world:1.0 Docker image
 ```
-docker run --rm hello-modular-world:1.0 
+$ docker run --rm hello-modular-world:1.0 
 ```
