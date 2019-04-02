@@ -65,7 +65,7 @@ To generate a Docker image containing the previously build Java Custom Runtime I
 $ docker build -t hello-modular-world:1.0 .
 ```
 
- To run the hello-modular-world:1.0 Docker image
+To run the hello-modular-world:1.0 Docker image
 ```
 $ docker run --rm hello-modular-world:1.0 
 ```
