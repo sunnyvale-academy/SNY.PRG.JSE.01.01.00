@@ -1,6 +1,7 @@
 package it.sunnyvale.academy.jsenewfeatures.streamapi;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * ReductionExample
@@ -22,5 +23,10 @@ public class ReductionExample {
              .mapToDouble(SalesTxn::getTransactionTotal)
              .reduce(0, (sum, element) -> sum + element);
         System.out.println(String.format("Using reduce(): %.2f",reduce));
+
+
+        Optional<SalesTxn> txn = list.stream()
+             .reduce((t1, t2) ->  t1.getTransactionTotal() > t2.getTransactionTotal() ? t1 : t2);
+        txn.ifPresent(System.out::println);
     }
 }
