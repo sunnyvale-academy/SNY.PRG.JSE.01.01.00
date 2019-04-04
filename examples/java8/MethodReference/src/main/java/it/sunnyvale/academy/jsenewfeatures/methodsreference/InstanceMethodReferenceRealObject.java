@@ -7,7 +7,13 @@ import java.util.stream.Stream;
  * InstanceMethodReferenceRealObject
  * 
  * This class shows an example of an instance method reference of a real object
+ * 
+ *  Instead of using:
+ *      (args) -> obj.instanceMethod(args)
+ *  Just use:
+ *      obj::instanceMethod
  */
+
 public class InstanceMethodReferenceRealObject {
 
     public class Bicycle {

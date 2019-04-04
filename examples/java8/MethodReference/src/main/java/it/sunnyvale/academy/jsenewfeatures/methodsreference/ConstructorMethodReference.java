@@ -7,6 +7,11 @@ import java.util.List;
  * ConstructorMethodReference
  *
  * This class shows an example of a contructor method reference
+ * 
+ *  Instead of using:
+ *      (args) -> new ClassName(args)
+ *  Just use:
+ *      ClassName::new
  */
 public class ConstructorMethodReference {
 

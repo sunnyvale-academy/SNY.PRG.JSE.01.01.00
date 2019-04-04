@@ -10,7 +10,13 @@ import java.util.function.BiPredicate;
  * InstanceMethodReference
  * 
  * This class shows an example of a static method reference
+ * 
+ *  Instead of using:
+ *      (args) -> Class.staticMethod(args)
+ *  Just use:
+ *      Class::staticMethod
  */
+
 public class StaticMethodReference {
    
 

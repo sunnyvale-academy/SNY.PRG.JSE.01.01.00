@@ -9,6 +9,11 @@ import java.util.function.Function;
  * InstanceMethodReferenceObjectType
  * 
  * This class shows an example of an instance method reference of an object of a particular type
+ * 
+ *  Instead of using:
+ *      (obj, args) -> obj.instanceMethod(args)
+ *  Just use:
+ *      ObjectType::instanceMethod
  */
 public class InstanceMethodReferenceObjectType {
 
