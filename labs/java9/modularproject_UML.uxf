@@ -61,7 +61,7 @@ String run(Class providerType)
     <panel_attributes>/Service/
 --
 --
-Response execute()
+Payload execute()
 </panel_attributes>
     <additional_attributes/>
   </element>
