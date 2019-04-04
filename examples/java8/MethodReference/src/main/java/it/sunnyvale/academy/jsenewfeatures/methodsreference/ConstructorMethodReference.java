@@ -26,8 +26,6 @@ public class ConstructorMethodReference {
             return this.brand;
         }
 
-        
-
     }
 
     public void execute() {
