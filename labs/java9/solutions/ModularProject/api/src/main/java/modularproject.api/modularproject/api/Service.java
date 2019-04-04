@@ -1,9 +1,9 @@
 package modularproject.api;
 
-import modularproject.dto.Payload;
+import modularproject.dto.Payload; 
 
 /**
- * Service
+ * Service 
  */
 public interface Service {
 

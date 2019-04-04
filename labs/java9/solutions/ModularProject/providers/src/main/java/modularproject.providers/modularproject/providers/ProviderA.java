@@ -1,18 +1,17 @@
 package modularproject.providers;
 
-import modularproject.api.Service;;
+import modularproject.api.Service;
+import modularproject.dto.Response;
+import modularproject.dto.Payload;
   
 /**
  * ProviderA
  */
 public class ProviderA implements Service{
 
-    public String execute(){
-        return this.toString();
+    public Payload execute(){
+        return new Response("Response from ProviderA");
     }
 
-    @Override 
-    public String toString(){
-        return "I'm provider A";
-    }
+     
 }

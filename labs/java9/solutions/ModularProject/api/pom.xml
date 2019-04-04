@@ -16,7 +16,7 @@
         <artifactId>ModularProject</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <dependencies>
+    <dependencies> 
         <dependency>
             <groupId>ModularProject</groupId>
             <artifactId>dto</artifactId>

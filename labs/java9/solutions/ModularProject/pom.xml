@@ -15,7 +15,7 @@
         <module>client</module>
         <module>api</module>
         <module>providers</module>
-        <module>dto</module>
+        <module>dto</module> 
     </modules>
     <build>
         <plugins>
