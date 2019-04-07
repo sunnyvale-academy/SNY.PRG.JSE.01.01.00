@@ -11,3 +11,4 @@ nb*
 **/*.jfr
 **/*.current
 bin/
+**/nb-configuration.xml

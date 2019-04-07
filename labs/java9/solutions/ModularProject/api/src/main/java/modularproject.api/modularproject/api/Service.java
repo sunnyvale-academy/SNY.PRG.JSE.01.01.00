@@ -8,4 +8,6 @@ import modularproject.dto.Payload;
 public interface Service {
 
     public Payload execute();
+    public String getType();
+    
 } 

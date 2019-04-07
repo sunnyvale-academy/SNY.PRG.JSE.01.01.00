@@ -15,5 +15,8 @@ public class ProviderB implements Service{
         return new Response("Response from ProviderB");
     }
 
-   
+    @Override
+    public String getType() {
+        return "ProviderB";
+    }
 }

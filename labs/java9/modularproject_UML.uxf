@@ -12,7 +12,7 @@
     <panel_attributes>Client
 --
 --
-+run(providerType:Class):String
++run(providerType:String):String
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -187,12 +187,12 @@ m1=&lt;&lt;implements&gt;&gt;</panel_attributes>
       <w>540</w>
       <h>120</h>
     </coordinates>
-    <panel_attributes>ServiceLoader&lt;Service&gt; srvLdr = ServiceLoader.load(providerType);
-for (Service srv : srvLdr) {
-   if (srv.getClass().equals(providerType)) return srv.execute().getMessage();
-}
-throw new RuntimeException("No suitable service provider found.");
-</panel_attributes>
+    <panel_attributes>ServiceLoader&lt;Service&gt; srvLdr = ServiceLoader.load(Service.class);
+        for (Service srv : srvLdr) {
+            if (srv.getType().equals(providerType))
+                return srv.execute().getMessage();
+        }
+        throw new RuntimeException("No suitable service provider found.");</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
