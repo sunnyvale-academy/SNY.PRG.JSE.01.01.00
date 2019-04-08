@@ -17,6 +17,6 @@ public class ClientTest {
         String providerType = "ProviderA";
         Client client = new Client();
         assertEquals(String.format("Response from %s",providerType), client.run(providerType));
-        assertEquals("1","2");
+        //assertEquals("1","2");
       }
 }
