@@ -8,7 +8,9 @@ Implement the ModularProject application following this UML class diagram
 
 ![ModularProject UML](modularproject_UML.jpg)
 
-### Modularize the [AutomotiveApp](AutomotiveApp/README.md) project
+### The [AutomotiveApp](AutomotiveApp/README.md) application
+
+Modularize the [AutomotiveApp](AutomotiveApp/README.md) project
 
 
 
