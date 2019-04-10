@@ -6,4 +6,4 @@
 
 Implement the ModularProject application following this UML class diagram
 
-![ModularProject UML](modularproject_UML.png)
+![ModularProject UML](modularproject_UML.jpg)

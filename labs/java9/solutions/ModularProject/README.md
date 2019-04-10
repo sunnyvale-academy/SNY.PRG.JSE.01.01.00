@@ -10,20 +10,13 @@ Prerequite steps
 ~$ cd ModularProject
 ```
 
-
 Every path is relative from here (where this README.md is located)
-
 
 To build and install the JARs
 ```
 ModularProject$ mvn clean
 ModularProject$ mvn build
 ModularProject$ mvn install
-```
-
-To test the application
-```
-ModularProject$ mvn -Dtest=modularproject.test.ClientTester test
 ```
 
 To run the application
