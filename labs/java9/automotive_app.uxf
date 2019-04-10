@@ -115,7 +115,7 @@ _+main(args:String[]):void_
       <w>330</w>
       <h>290</h>
     </coordinates>
-    <panel_attributes>Jar: car-1.0-SNAMPSHOT.jar</panel_attributes>
+    <panel_attributes>Jar: log4j-1.2.17.jar</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
