@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>630</x>
+      <y>140</y>
+      <w>250</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>com.automotiveapp</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>640</x>
+      <y>180</y>
+      <w>230</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Engine
+--
+engine:Engine
+--
++start():void
++Engine()
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>200</y>
+      <w>200</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+&lt;&lt;uses&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;180.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>570</x>
+      <y>20</y>
+      <w>330</w>
+      <h>490</h>
+    </coordinates>
+    <panel_attributes>Jar: engine-1.0-SNAMPSHOT.jar</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>170</x>
+      <y>20</y>
+      <w>330</w>
+      <h>490</h>
+    </coordinates>
+    <panel_attributes>Jar: car-1.0-SNAMPSHOT.jar</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>220</x>
+      <y>140</y>
+      <w>250</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>com.automotiveapp</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>230</x>
+      <y>180</y>
+      <w>230</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Car
+--
+engine:Engine
+--
++move():void
++start():void
+_+main(args:String[]):void_
++Car()
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>320</y>
+      <w>130</w>
+      <h>450</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+&lt;&lt;uses&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;430.0;110.0;430.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>390</x>
+      <y>610</y>
+      <w>330</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>Jar: car-1.0-SNAMPSHOT.jar</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>430</x>
+      <y>710</y>
+      <w>230</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Logger
+--
+--
+_+getLogger(class:Class):Logger_
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>420</x>
+      <y>670</y>
+      <w>250</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>org.apache.log4j</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>650</x>
+      <y>320</y>
+      <w>160</w>
+      <h>450</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+&lt;&lt;uses&gt;&gt;</panel_attributes>
+    <additional_attributes>100.0;10.0;100.0;430.0;10.0;430.0</additional_attributes>
+  </element>
+</diagram>
