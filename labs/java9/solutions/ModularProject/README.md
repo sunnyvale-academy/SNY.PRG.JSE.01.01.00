@@ -15,7 +15,7 @@ Every path is relative from here (where this README.md is located)
 To build and install the JARs
 ```
 ModularProject$ mvn clean
-ModularProject$ mvn build
+ModularProject$ mvn package
 ModularProject$ mvn install
 ```
 
