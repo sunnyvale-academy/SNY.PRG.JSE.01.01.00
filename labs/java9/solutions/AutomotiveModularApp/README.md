@@ -113,7 +113,6 @@ Prerequite steps
 ```
 ~$ export JAVA_HOME=/path/to/jdk9
 ~$ export PATH=$JAVA_HOME/bin:$PATH
-~$ cd AutomotiveModularApp
 ```
 
 Every path is relative from here (where this README.md is located)
