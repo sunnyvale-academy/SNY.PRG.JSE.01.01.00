@@ -118,7 +118,7 @@ _+main(args:String[]):void_
       <h>290</h>
     </coordinates>
     <panel_attributes>Jar: log4j-1.2.17.jar
-Module: (automatic) junit</panel_attributes>
+Module: (automatic) log4j</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
