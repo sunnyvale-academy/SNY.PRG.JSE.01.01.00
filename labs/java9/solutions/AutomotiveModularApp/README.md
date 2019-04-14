@@ -82,13 +82,13 @@ $ jdeps -s ~/.m2/repository/AutomotiveApp/car/1.0-SNAPSHOT/car-1.0-SNAPSHOT.jar 
 
 ## Migration
 
-Running everything in the CLASSPATH
+### Running everything in the CLASSPATH
 ```
  $ java --class-path "$HOME/.m2/repository/AutomotiveApp/car/1.0-SNAPSHOT/car-1.0-SNAPSHOT.jar:$HOME/.m2/repository/AutomotiveApp/engine/1.0-SNAPSHOT/engine-1.0-SNAPSHOT.jar:$HOME/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar"  com.automotiveapp.Car
     Engine starting...
 ```
 
-Running everything in the MODULEPATH (split packages must me fixed with --patch-module car=$HOME/.m2/repository/AutomotiveApp/engine/1.0-SNAPSHOT/engine-1.0-SNAPSHOT.jar)
+### Running everything in the MODULEPATH 
 
 Trying using split packages:
 ```
