@@ -3,7 +3,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>it.sunnyvale.academy.jsenewfeatures</groupId>
-    <artifactId>AutomotiveApp</artifactId>
+    <artifactId>AutomotiveModularApp</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <properties>
@@ -12,8 +12,8 @@
         <jdk.version>1.9</jdk.version>
     </properties>
     <modules>
-        <module>car</module>
-        <module>engine</module>
+        <module>modular-car</module>
+        <module>modular-engine</module>
     </modules>
     
 </project>
