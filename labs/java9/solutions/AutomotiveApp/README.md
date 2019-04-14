@@ -1,6 +1,6 @@
-# AutomotiveApp project
+# AutomotiveApp migration solution
 
-![AutomotiveApp UML](../automotive_app.jpg)
+![ModularProject UML](../automotive_app.jpg)
 
 Prerequite steps
 
