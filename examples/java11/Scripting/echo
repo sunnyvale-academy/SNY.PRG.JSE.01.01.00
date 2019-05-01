@@ -1,0 +1,38 @@
+#!/Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home/bin/java --source 11
+
+import java.io.*;
+import java.util.stream.*;
+
+class Echo{
+
+public static void main(String[] args) throws IOException {
+    var lines = readInput();
+    // modify the stream according to command line options
+    for (var arg : args)
+        lines = modifyStream(arg, lines);
+    lines.forEach(System.out::println);
+}
+
+private static Stream<String> readInput() throws IOException {
+        var reader = new BufferedReader(
+            new InputStreamReader(System.in));
+        if (!reader.ready())
+            return Stream.empty();
+        else
+            return reader.lines();
+    }
+ 
+private static Stream<String> modifyStream(String arg, Stream<String> input) {
+    switch (arg){
+        case "--sort": return input.sorted();
+        case "--unique": return input.distinct();
+        default: {
+            System.out.println("Unknown argument '" + arg + "'.");
+            return input;
+        }
+    }
+}
+
+}//end class
+
+//cat elenco.txt | ./echo --sort 
