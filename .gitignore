@@ -10,5 +10,7 @@ nb*
 **/*.err
 **/*.jfr
 **/*.current
+**/*.class
+**/*.swp
 bin/
 **/nb-configuration.xml

@@ -1,0 +1,3 @@
+FROM openjdk:8u151
+COPY DockerTest.class /
+CMD java ${JAVA_OPT} DockerTest ${APP_OPT}
