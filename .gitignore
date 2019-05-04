@@ -12,5 +12,6 @@ nb*
 **/*.current
 **/*.class
 **/*.swp
+**/.vagrant
 bin/
 **/nb-configuration.xml
