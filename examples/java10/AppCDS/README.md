@@ -1,3 +1,5 @@
+# Improve Launch Times On Java 10 With Application Class-Data Sharing
+
 
 ## Using Class Data Sharing
 
@@ -185,5 +187,5 @@ $ time java -Xlog:class+load:file=cds.log -XX:+UseAppCDS -Xshare:off -XX:SharedC
 0.359 total
 ```
 
-For a simple “Hello, World” application there is of course no performance boost of AppCDS over CDS because loading one class more or less from the archive has no measurable impact.
+For a simple “Hello, World” application there is of course no performance boost of AppCDS over CDS because loading one class more or less from the archive has no measurable impact, but still... the use of -Xshare:on boosts the startup of the JVM a bit.
 
