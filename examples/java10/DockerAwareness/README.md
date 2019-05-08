@@ -1,5 +1,5 @@
 
-# Proving Java 10 Docker full awareness
+# Experimenting Java 10 Docker full awareness
 
 
 
@@ -26,7 +26,9 @@ user@yourpc$ vagrant ssh
 ### Java 8
 
 ```
-vagrant@docker:~$ docker run --rm docker-test:jdk8
+vagrant@docker:~$ docker run \
+                        --rm \
+                        docker-test:jdk8
 
 System properties
 Cores       : 2
@@ -35,7 +37,11 @@ Memory (Max): 239
 Initially, when the Java 8 container starts, it sees 2 cores and allocates 241MB of memory (1024/4=256). Now let’s try to limit the resources and see the results.
 
 ```
-vagrant@docker:~$ docker run --rm -c 512 -m 512MB docker-test:jdk8
+vagrant@docker:~$ docker run \
+                        --rm \
+                        -c 512 \
+                        -m 512MB \
+                        docker-test:jdk8
 
 System properties
 Cores       : 2
@@ -46,7 +52,11 @@ Here the -c 512 sets the CPU Shares to 512, which advises using half of the avai
 However, Java 8 update 151 has the CPU Sets improvement. This time let’s try with setting the --cpuset-cpus to a single core.
 
 ```
-vagrant@docker:~$ docker run --rm --cpuset-cpus 0 -m 512MB docker-test:jdk8
+vagrant@docker:~$ docker run \
+                        --rm \
+                        --cpuset-cpus 0 \
+                        -m 512MB \
+                        docker-test:jdk8
 
 System properties
 Cores       : 1
@@ -55,7 +65,13 @@ Memory (Max): 239
 And it’s working. This version also allows us to use the -XX:+UseCGroupMemoryLimitForHeap option to get the correct memory limit.
 
 ```
-vagrant@docker:~$ docker run --rm --cpuset-cpus 0 -m 512MB -e JAVA_OPT="-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap" docker-test:jdk8
+vagrant@docker:~$ docker run \
+                        --rm \
+                        --cpuset-cpus 0 \
+                        -m 512MB \
+                        -e JAVA_OPT="-XX:+UnlockExperimentalVMOptions \
+                        -XX:+UseCGroupMemoryLimitForHeap" \
+                        docker-test:jdk8
 
 System properties
 Cores       : 1
@@ -68,7 +84,13 @@ With the help of this option, finally, 123MB of heap space is allocated, which p
 It would be enough to repeat the last step from the previous section since the functionality is same.
 
 ```
-vagrant@docker:~$ docker run --rm --cpuset-cpus 0 -m 512MB -e JAVA_OPT="-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap" docker-test:jdk9
+vagrant@docker:~$ docker run \
+                        --rm \
+                        --cpuset-cpus 0 \
+                        -m 512MB \
+                        -e JAVA_OPT="-XX:+UnlockExperimentalVMOptions \
+                        -XX:+UseCGroupMemoryLimitForHeap" \
+                        docker-test:jdk9
 
 System properties
 Cores       : 1
@@ -82,7 +104,11 @@ As expected, Java 9 recognized the CPU Sets and the memory limits when -XX:+UseC
 Since Java 10 is the Docker-aware version, resource limits should have taken effect without any explicit configuration.
 
 ```
-vagrant@docker:~$ docker run --rm --cpuset-cpus 0 -m 512MB docker-test:jdk10
+vagrant@docker:~$ docker run \
+                        --rm \
+                        --cpuset-cpus 0 \
+                        -m 512MB \
+                        docker-test:jdk10
 
 System properties
 Cores       : 1
@@ -92,7 +118,11 @@ Memory (Max): 123
 The previous snippet shows that CPU Sets are handled correctly. Now let’s try with setting CPU Shares:
 
 ```
-vagrant@docker:~$ docker run --rm -c 512 -m 512MB docker-test:jdk10
+vagrant@docker:~$ docker run \
+                        --rm \
+                        -c 512 \
+                        -m 512MB \
+                        docker-test:jdk10
 
 System properties
 Cores       : 1
@@ -102,7 +132,12 @@ Memory (Max): 123
 It’s working as expected. Also, it’s worth to see this feature can be disabled via the -XX:-UseContainerSupport option (note that it starts with - after the -XX: prefix):
 
 ```
-vagrant@docker:~$ docker run --rm -c 512 -m 512MB -e JAVA_OPT=-XX:-UseContainerSupport docker-test:jdk10
+vagrant@docker:~$ docker run \
+                        --rm \
+                        -c 512 \
+                        -m 512MB \
+                        -e JAVA_OPT=-XX:-UseContainerSupport \
+                        docker-test:jdk10
 
 System properties
 Cores       : 2
@@ -112,7 +147,11 @@ Memory (Max): 239
 This time JVM reads the configuration from the Docker machine. So these outputs show how the resource limits are correctly handled in Java 10. As mentioned in the Improvements section, this version also includes changes in Attach API. To demonstrate this, first, let’s start the DockerTest container using JDK 10 in loop mode
 
 ```
-vagrant@docker:~$ docker run --rm -ti -e JAVA_OPT=-Dloop=true docker-test:jdk10
+vagrant@docker:~$ docker run \
+                        --rm \
+                        -ti \
+                        -e JAVA_OPT=-Dloop=true \
+                        docker-test:jdk10
 
 System properties
 Cores       : 2
@@ -148,7 +187,9 @@ It’s important to mention that 23778 is the PID visible on the host machine. F
 
 
 ```
-vagrant@docker:~$ docker exec -ti 0e336e755f70 /jdk-10/bin/jps
+vagrant@docker:~$ docker exec \
+                        -ti 0e336e755f70 \
+                        /jdk-10/bin/jps
 
 6 DockerTest
 ```

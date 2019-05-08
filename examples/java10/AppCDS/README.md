@@ -48,7 +48,11 @@ Just as -Xshare:dump creates the archive in a default location, -Xshare:on reads
 We can use unified logging with -Xlog to observe CDS in action by analyzing the class loading log messages:
 
 ```
-$ java -Xshare:on -Xlog:class+load:file=cds.log --module-path HelloModularWorld/modules --module com.greeting/com.greeting.Hello 
+$ java \
+    -Xshare:on \
+    -Xlog:class+load:file=cds.log \
+    --module-path HelloModularWorld/modules \
+    --module com.greeting/com.greeting.Hello 
 
 Hello modular world!
 ```
@@ -70,7 +74,11 @@ As you can see, Object was loaded from the “shared objects file”, which is a
 ### Launch Time Measurements
 
 ```
-$ time java -Xshare:on -Xlog:class+load:file=cds.log --module-path HelloModularWorld/modules --module com.greeting/com.greeting.Hello 
+$ time java \
+    -Xshare:on \
+    -Xlog:class+load:file=cds.log \
+    --module-path HelloModularWorld/modules \
+    --module com.greeting/com.greeting.Hello 
 
 Hello modular world!
 java -Xshare:on -Xlog:class+load:file=cds.log --module-path  --module   
@@ -82,7 +90,11 @@ java -Xshare:on -Xlog:class+load:file=cds.log --module-path  --module
 ```
 
 ```
-$ time java -Xshare:off -Xlog:class+load:file=cds.log --module-path HelloModularWorld/modules --module com.greeting/com.greeting.Hello 
+$ time java \
+    -Xshare:off \
+    -Xlog:class+load:file=cds.log \
+    --module-path HelloModularWorld/modules \
+    --module com.greeting/com.greeting.Hello 
 
 Hello modular world!
 java -Xshare:off -Xlog:class+load:file=cds.log --module-path  --module   
@@ -102,7 +114,11 @@ Note, though, that this is the maximum performance gain you are going to get for
 To have the JVM create the list, run the application with the -XX:DumpLoadedClassList option:
 
 ```
-$ java -XX:+UseAppCDS -XX:DumpLoadedClassList=classes.lst --module-path HelloModularWorld/modules --module com.greeting/com.greeting.Hello 
+$ java \
+    -XX:+UseAppCDS \
+    -XX:DumpLoadedClassList=classes.lst \
+    --module-path HelloModularWorld/modules \
+    --module com.greeting/com.greeting.Hello 
 
 Hello modular world!
 ```
@@ -125,7 +141,14 @@ com/world/World
 ### Creating An Application Class-Data Archive
 
 ```
-$ java -XX:+UseAppCDS -Xshare:dump -XX:SharedClassListFile=classes.lst  -XX:SharedArchiveFile=app-cds.jsa -Xlog:class+path=info --module-path HelloModularWorld/modules/com.greeting:HelloModularWorld/modules/com.world --module com.greeting/com.greeting.Hello
+$ java \
+    -XX:+UseAppCDS \
+    -Xshare:dump \
+    -XX:SharedClassListFile=classes.lst \
+    -XX:SharedArchiveFile=app-cds.jsa \
+    -Xlog:class+path=info \
+    --module-path HelloModularWorld/modules/com.greeting:HelloModularWorld/modules/com.world \
+    --module com.greeting/com.greeting.Hello
 
 Error: non-empty directory '/Users/denismaggiorotto/Documents/sunnyvale/Academy/Courses/Java_SE_new_features/SNY.PRG.JSE.01.01.00/examples/java10/AppCDS/HelloModularWorld/modules/com.greeting/'
 Error: non-empty directory '/Users/denismaggiorotto/Documents/sunnyvale/Academy/Courses/Java_SE_new_features/SNY.PRG.JSE.01.01.00/examples/java10/AppCDS/HelloModularWorld/modules/com.world/'
@@ -133,12 +156,26 @@ Error: non-empty directory '/Users/denismaggiorotto/Documents/sunnyvale/Academy/
 Non-empty directory error is due to the fact that AppCDS only supports classes from JAR file(s) in dump phase.
 
 ```
-$ jar -c --file=HelloModularWorld/libs/com.world.jar -C HelloModularWorld/modules/com.world .
-$ jar -c --file=HelloModularWorld/libs/com.greeting.jar -C HelloModularWorld/modules/com.greeting .
+$ jar \
+    -c \
+    --file=HelloModularWorld/libs/com.world.jar \
+    -C HelloModularWorld/modules/com.world .
+
+$ jar  \
+    -c \
+    --file=HelloModularWorld/libs/com.greeting.jar \
+    -C HelloModularWorld/modules/com.greeting .
 ```
 
 ```
-$ java -XX:+UseAppCDS -Xshare:dump -XX:SharedClassListFile=classes.lst  -XX:SharedArchiveFile=app-cds.jsa -Xlog:class+path=info --module-path HelloModularWorld/libs/com.greeting.jar:HelloModularWorld/libs/com.world.jar --module com.greeting/com.greeting.Hello
+$ java \
+    -XX:+UseAppCDS \
+    -Xshare:dump \
+    -XX:SharedClassListFile=classes.lst \
+    -XX:SharedArchiveFile=app-cds.jsa \
+    -Xlog:class+path=info \
+    --module-path HelloModularWorld/libs/com.greeting.jar:HelloModularWorld/libs/com.world.jar \
+    --module com.greeting/com.greeting.Hello
 
 ...
 Number of classes 950
@@ -151,7 +188,14 @@ Number of classes 950
 ### Using An Application Class-Data Archive
 
 ```
-$ java -Xlog:class+load:file=cds.log -XX:+UseAppCDS -Xshare:on -XX:SharedClassListFile=classes.lst  -XX:SharedArchiveFile=app-cds.jsa --module-path HelloModularWorld/libs/com.greeting.jar:HelloModularWorld/libs/com.world.jar --module com.greeting/com.greeting.Hello
+$ java \
+    -Xlog:class+load:file=cds.log \
+    -XX:+UseAppCDS \
+    -Xshare:on \
+    -XX:SharedClassListFile=classes.lst \
+    -XX:SharedArchiveFile=app-cds.jsa \
+    --module-path HelloModularWorld/libs/com.greeting.jar:HelloModularWorld/libs/com.world.jar \
+    --module com.greeting/com.greeting.Hello
 
 Hello modular world!
 ```
@@ -168,7 +212,13 @@ $ cat cds.log | egrep -ie "greet|world"
 ### Launch Time Measurements
 
 ```
-$ time java -Xlog:class+load:file=cds.log -XX:+UseAppCDS -Xshare:on -XX:SharedClassListFile=classes.lst  -XX:SharedArchiveFile=app-cds.jsa --module-path HelloModularWorld/libs/com.greeting.jar:HelloModularWorld/libs/com.world.jar --module com.greeting/com.greeting.Hello
+$ time java \
+    -Xlog:class+load:file=cds.log \
+    -XX:+UseAppCDS \
+    -Xshare:on \
+    -XX:SharedClassListFile=classes.lst \
+    -XX:SharedArchiveFile=app-cds.jsa \
+    --module-path HelloModularWorld/libs/com.greeting.jar:HelloModularWorld/libs/com.world.jar \ --module com.greeting/com.greeting.Hello
 
 Hello modular world!
 
@@ -179,7 +229,13 @@ Hello modular world!
 ```
 
 ```
-$ time java -Xlog:class+load:file=cds.log -XX:+UseAppCDS -Xshare:off -XX:SharedClassListFile=classes.lst  -XX:SharedArchiveFile=app-cds.jsa --module-path HelloModularWorld/libs/com.greeting.jar:HelloModularWorld/libs/com.world.jar --module com.greeting/com.greeting.Hello
+$ time java \
+    -Xlog:class+load:file=cds.log \
+    -XX:+UseAppCDS \
+    -Xshare:off \
+    -XX:SharedClassListFile=classes.lst \ -XX:SharedArchiveFile=app-cds.jsa \
+    --module-path HelloModularWorld/libs/com.greeting.jar:HelloModularWorld/libs/com.world.jar \
+    --module com.greeting/com.greeting.Hello
 
 0.32s user 
 0.08s system 
