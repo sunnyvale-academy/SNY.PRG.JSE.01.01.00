@@ -195,4 +195,4 @@ vagrant@docker:~$ docker exec \
 ```
 
 ## Conclusion
-Even though there’re a couple of features added prior to Java 10, the newest Java release is the most container ready version experienced so far. This blog post solely focused on single Docker containers. It would be good to experiment how Java 10 plays under orchestration frameworks as well.
+Even though there’re a couple of features added prior to Java 10, the newest Java release is the most container ready version experienced so far. This example  solely focused on single Docker containers. It would be good to experiment how Java 10 plays under orchestration frameworks as well (ie: Kubernetes).
