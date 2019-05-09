@@ -2,5 +2,5 @@ sudo apt-key -y adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB199
 
 sudo apt-add-repository -y 'deb http://repos.azulsystems.com/ubuntu stable main'
 
-sudo apt install -y zulu-11
+sudo apt install -y --allow-unauthenticated zulu-11
 
