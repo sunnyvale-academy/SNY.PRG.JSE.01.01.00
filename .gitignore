@@ -17,4 +17,6 @@ nb*
 **/*.lst
 **/.vagrant
 bin/
+**/*.jar
 **/nb-configuration.xml
+**/libs
