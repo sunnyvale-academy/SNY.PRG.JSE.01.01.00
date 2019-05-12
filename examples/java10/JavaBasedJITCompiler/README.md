@@ -44,7 +44,7 @@ $ export PATH=`pwd`/mx:$PATH
 ```
 
 ```
-$ git clone https://github.com/graalvm/graal.git
+$ git clone https://github.com/graalvm/graal.git 
 ```
 
 ```
@@ -53,6 +53,8 @@ $ mx build
 ```
 
 Download Eclipse 4.7.3a ("Oxygen") from http://download.eclipse.org/eclipse/downloads/
+
+For info about how to setup Eclipse please refer to [Oracle's docs](https://github.com/oracle/graal/blob/master/compiler/docs/IDEs.md)
 
 ```
 $ mx eclipseinit
@@ -66,7 +68,50 @@ a new JDK to Eclipse. Be sure to select "Standard VM" (even on macOS) for the JR
 ----------------------------------------------
 ```
 
-You will want to open the **graal** directory as workspace, then do File, Import…, General, Existing projects and select the **graal** directory again.
+You will want to open the your preferred directory as workspace, then do File, Import…, General, Existing projects and select the cloned **graal** directory.
 
 ![The Eclipse workspace with Graal project](img/eclipse_graal.png)
+
+You now have all the Graal project opened into the workspace.
+
+Ok now that we have everything ready, let’s show this working. We’ll use this very simple [code](Demo/src/main/java/it/sunnyvale/academy/jsenewfeatures/javajit/Demo.java).
+
+We’ll compile that with javac, and then we’ll run the JVM. First of all I’ll show you the conventional C2 JIT-compiler working.
+
+```
+$ javac Demo/src/main/java/it/sunnyvale/academy/jsenewfeatures/javajit/Demo.java -d Demo/target/classes
+
+$ java \
+  -XX:+PrintCompilation \
+  -cp ./Demo/target/classes \
+  -XX:CompileOnly=it.sunnyvale.academy.jsenewfeatures.javajit.Demo::workload \
+  it.sunnyvale.academy.jsenewfeatures.javajit.Demo
+...
+    591    2       1       it.sunnyvale.academy.jsenewfeatures.javajit.Demo::workload (4 bytes)
+...
+```
+
+Now we’re going to use the Graal that we just built as our JIT-compiler in our Java 11 JVM. We need to add some more complicated flags here.
+
+```
+$ java \
+  -cp ./Demo/target/classes \
+  --module-path=./graal/sdk/mxbuild/dists/jdk11/graal-sdk.jar:./graal/truffle/mxbuild/dists/jdk11/truffle-api.jar \
+  --upgrade-module-path=graal/compiler/mxbuild/dists/jdk11/graal.jar \
+  --patch-module=jdk.internal.vm.compiler=.jar \
+  -XX:+UnlockExperimentalVMOptions \
+  -XX:+EnableJVMCI \
+  -XX:+UseJVMCICompiler \
+  -XX:-TieredCompilation \
+  -XX:+PrintCompilation \
+  -XX:CompileOnly=it.sunnyvale.academy.jsenewfeatures.javajit.Demo::workload \
+  it.sunnyvale.academy.jsenewfeatures.javajit.Demo
+...
+        374   35             it.sunnyvale.academy.jsenewfeatures.javajit.Demo::workload (4 bytes)
+...
+Denis compilation
+...
+```
+
+
 
