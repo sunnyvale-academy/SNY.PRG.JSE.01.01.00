@@ -30,7 +30,7 @@ A JIT-compiler just needs to be able to accept JVM bytecode and produce machine 
 The first thing we need is Java 9 or greather. The interface that Graal uses, called JVMCI, was added to Java as JEP 243 Java-Level JVM Compiler Interface, and the first version to have this was Java 9
 
 ```
-$ export JAVA_HOME=`pwd`/jdk11
+$ export JAVA_HOME=/path/to/jdk11 # ie: export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home
 $ export PATH=$JAVA_HOME/bin:$PATH
 $ java -version
 java version "11.0.3" 2019-04-16 LTS
@@ -79,6 +79,7 @@ Ok now that we have everything ready, let’s show this working. We’ll use thi
 We’ll compile that with javac, and then we’ll run the JVM. First of all I’ll show you the conventional C2 JIT-compiler working.
 
 ```
+$ mkdir -p Demo/target/classes   
 $ javac Demo/src/main/java/it/sunnyvale/academy/jsenewfeatures/javajit/Demo.java -d Demo/target/classes
 
 $ java \
@@ -103,7 +104,7 @@ $ java \
   -XX:+EnableJVMCI \
   -XX:+UseJVMCICompiler \
   -XX:-TieredCompilation \
-  -XX:+PrintCompilation \
+  -XX:-PrintCompilation \
   -XX:CompileOnly=it.sunnyvale.academy.jsenewfeatures.javajit.Demo::workload \
   it.sunnyvale.academy.jsenewfeatures.javajit.Demo
 ...
@@ -115,5 +116,44 @@ Denis compilation
 
 
 
+
+Now run the application with -Dgraal.Dump 
+
 ```
+$ java \
+  -cp ./Demo/target/classes \
+  --module-path=./graal/sdk/mxbuild/dists/jdk11/graal-sdk.jar:./graal/truffle/mxbuild/dists/jdk11/truffle-api.jar \
+  --upgrade-module-path=graal/compiler/mxbuild/dists/jdk11/graal.jar \
+  --patch-module=jdk.internal.vm.compiler=.jar \
+  -XX:+UnlockExperimentalVMOptions \
+  -XX:+EnableJVMCI \
+  -XX:+UseJVMCICompiler \
+  -XX:-TieredCompilation \
+  -XX:-PrintCompilation \
+  -XX:CompileOnly=it.sunnyvale.academy.jsenewfeatures.javajit.Demo::workload \
+  -Dgraal.Dump \
+  -DPrintGraphFile=true \
+  it.sunnyvale.academy.jsenewfeatures.javajit.Demo
+
+...
+[Use -Dgraal.LogFile=<path> to redirect Graal log output to a file.]
+Dumping IGV graphs in /Users/denismaggiorotto/Documents/sunnyvale/Academy/Courses/Java_SE_new_features/SNY.PRG.JSE.01.01.00/examples/graalvm/JavaBasedJITCompiler/graal_dumps/1557627023434
+
 ```
+Download Ideal Graph Visualizer [here](https://www.oracle.com/technetwork/oracle-labs/program-languages/downloads/index.html)
+
+
+Start Ideal Graph Visualizer
+
+...
+$ ./idealgraphvisualizer --jdkhome /path/to/jdk8/Home # ie: ./idealgraphvisualizer --jdkhome /Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home
+...
+
+![IGV](img/igv.png)
+
+Open dumps/1557627023434 in idealgraphvisualizer
+
+![IGV](img/igv_after_parsing.png)
+
+
+
