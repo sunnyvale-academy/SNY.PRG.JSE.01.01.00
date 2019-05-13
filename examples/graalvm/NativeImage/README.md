@@ -59,7 +59,7 @@ $ native-image \
 
 ```
 $ ls -l 
-3.8 M -rwxrwxr-x 1 xxxxx xxxxx 3.8M Dec 12 15:48 hellonativeworld
+3.8 M -rwxrwxr-x 1 xxxxx xxxxx 3.8M Dec 12 15:48 it.sunnyvale.academy.jsenewfeatures.ni.hellonativeworld
 ```
 
 
