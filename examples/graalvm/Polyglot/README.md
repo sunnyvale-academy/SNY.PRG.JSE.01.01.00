@@ -13,7 +13,7 @@ Java HotSpot(TM) GraalVM EE 19.0.0 (build 25.212-b31-jvmci-19-b01, mixed mode)
 ```
 
 
-
+Compile the HelloPolyglotWorld.java class
 
 ```
 $ mkdir -p HelloPolyglotWorld/target/classes  
@@ -33,6 +33,8 @@ Exception in thread "main" java.lang.IllegalArgumentException: A language with i
         at org.graalvm.polyglot.Context.eval(Context.java:367)
         at it.sunnyvale.academy.jsenewfeatures.polyglot.HelloPolyglotWorld.main(HelloPolyglotWorld.java:21)
 ```
+
+Install additional Ruby language runtime
 
 ```
 $ gu install ruby
@@ -62,7 +64,7 @@ To rebuild and refresh the native binaries, use the following command:
         /Library/Java/JavaVirtualMachines/graalvm-ee-19.0.0/Contents/Home/bin/gu rebuild-images
 ```
 
-Install additional language runtimes
+Install other language runtimes too
 
 ```
 $ gu install R
