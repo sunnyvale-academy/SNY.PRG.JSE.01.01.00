@@ -46,6 +46,8 @@ $ time java \
     -XX:+UnlockExperimentalVMOptions \
     -XX:+EnableJVMCI \
     -XX:+UseJVMCICompiler \
+    -XX:-TieredCompilation \
+    -Djvmci.Compiler=graal \
     -cp HighPerformance/target/classes \
     it.sunnyvale.academy.jsenewfeatures.hp.HighPerformance \
     large.txt
