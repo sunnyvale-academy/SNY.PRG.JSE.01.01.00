@@ -5,6 +5,8 @@ import java.util.List;
 
 /**
  * SalesTxn
+ * 
+ * author: denismaggiorotto
  */
 public class SalesTxn implements Comparable{
 

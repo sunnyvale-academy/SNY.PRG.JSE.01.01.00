@@ -10,6 +10,8 @@ import java.util.stream.Stream;
 
 /**
  * FilterExample
+ * 
+ * author: denismaggiorotto
  */
 public class CollectingExample {
 

@@ -130,43 +130,6 @@ m1=&lt;&lt;implements&gt;&gt;</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;320.0</additional_attributes>
   </element>
   <element>
-    <id>UMLPackage</id>
-    <coordinates>
-      <x>360</x>
-      <y>234</y>
-      <w>120</w>
-      <h>84</h>
-    </coordinates>
-    <panel_attributes>modularproject.test</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>402</x>
-      <y>162</y>
-      <w>42</w>
-      <h>114</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-&lt;&lt;uses&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;170.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>378</x>
-      <y>264</y>
-      <w>60</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>ClientTester
---
---
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
       <x>876</x>
