@@ -218,7 +218,8 @@ $ time java \
     -Xshare:on \
     -XX:SharedClassListFile=classes.lst \
     -XX:SharedArchiveFile=app-cds.jsa \
-    --module-path HelloModularWorld/libs/com.greeting.jar:HelloModularWorld/libs/com.world.jar \ --module com.greeting/com.greeting.Hello
+    --module-path HelloModularWorld/libs/com.greeting.jar:HelloModularWorld/libs/com.world.jar \
+    --module com.greeting/com.greeting.Hello
 
 Hello modular world!
 

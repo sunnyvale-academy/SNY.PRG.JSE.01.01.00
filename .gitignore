@@ -20,3 +20,7 @@ bin/
 **/*.jar
 **/nb-configuration.xml
 **/libs
+**/vcs.xml
+**/modules.xml
+**/misc.xml
+**/workspace.xml
