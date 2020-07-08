@@ -42,7 +42,7 @@ public class SortingExample {
                 .sorted(Comparator.comparing(comparingFunction1))
                 .forEach(SalesTxn::printSummary);
 
-        System.out.println("#### SalesTxn ordering by tnx ID (Comparator.comparing, thenComparing) ####");
+        System.out.println("#### SalesTxn ordering by tnx Total (Comparator.comparing, thenComparing) ####");
         Function<SalesTxn, Double> comparingFunction2 = t -> new Double(t.getTransactionTotal());
         Function<SalesTxn, String> comparingFunction3 = t -> t.getBuyerName();
         txnList.stream()
