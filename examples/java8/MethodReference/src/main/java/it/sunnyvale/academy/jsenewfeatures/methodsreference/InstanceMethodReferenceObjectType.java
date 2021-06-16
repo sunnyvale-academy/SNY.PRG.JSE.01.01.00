@@ -30,9 +30,15 @@ public class InstanceMethodReferenceObjectType {
 
         // Using an instance method reference of an object type (ObjectType::method)
         System.out.println("## Using an instance method reference of an object type (ObjectType::method)");
-        numbers.stream()
+        String str = numbers.stream()
             .sorted(Integer::compare)
-            .forEach(System.out::println);
+            //.forEach(System.out::println);
+            .map(t -> String.valueOf(t))
+            //.peek(System.out::println)
+            .map(String::toUpperCase)
+            //.forEach(System.out::println);
+            .findAny().get();
+            System.out.println(str);
         
     }
 

@@ -120,5 +120,10 @@ public class MiscellaneousExample {
         // What time is it in San Francisco for that meeting?
         ZonedDateTime earlyMeeting = meetingUK.withZoneSameInstant(ZoneId.of("America/Los_Angeles"));
 
+        LocalDateTime meeting_denis = LocalDateTime.of(2014, JUNE, 13, 12, 30);
+        ZoneId sanFran = ZoneId.of("America/Los_Angeles");
+        ZonedDateTime staffCall_denis = ZonedDateTime.of(meeting_denis, sanFran);
+        OffsetDateTime myoffsetDateTime = staffCall.toOffsetDateTime();
+        System.out.println("##" + myoffsetDateTime);
     }
 }
