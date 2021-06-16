@@ -17,6 +17,7 @@ public class ConsumerExample {
 
         System.out.println("== Buyers - Lambda");
         tList.stream().forEach(buyerConsumer);
+        //tList.stream().forEach(SalesTxn::printSummary);
 
         System.out.println("== First Buyer - Method");
         buyerConsumer.accept(first);
