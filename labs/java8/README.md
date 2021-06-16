@@ -99,7 +99,7 @@ private double[] array = { 17.0, 3.14, 17.0, -3.4, 17.0, 42.0, 29.2, 3.14 };
 
 @Test
 public void testLambdaArrayProcessorMax() {
-    ArrayProcessor maxer = LambdaArrayProcessor.getMaxter();
+    ArrayProcessor maxer = LambdaArrayProcessor.getMaxer();
     double max = maxer.apply(array);
     assertTrue(42.0 == max);
     
