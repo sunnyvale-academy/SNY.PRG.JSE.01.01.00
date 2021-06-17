@@ -1,6 +1,7 @@
 package it.sunnyvale.academy.jsenewfeatures.streamapi;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * ParallelStreamExample
@@ -25,6 +26,14 @@ public class ParallelStreamExample {
              .parallel()
              .sum();
          System.out.println("r2="+r2);
+
+        // non deterministic stream operation (Avoid this!!!)
+        Optional<SalesTxn> optTxn = list.stream()
+            .parallel()
+            .findAny();
+        if(optTxn.isPresent()){
+            System.out.println("Non-deterministic find: " + optTxn.get());
+        }
 
     }
 }
