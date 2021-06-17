@@ -15,6 +15,7 @@ public class PeekExample {
 
         List<SalesTxn> txnList = SalesTxn.createTxnList();
         long count = txnList.stream()
+            .peek(consumer)
             .filter(t -> t.getBuyerName().contains("Mario"))
             .peek(consumer)
             .count();
